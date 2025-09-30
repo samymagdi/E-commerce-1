@@ -1,0 +1,23 @@
+@if (control?.errors&&control?.touched&&!control?.getError('mismatch')) {
+         <div class="bg-red-100 border my-3 border-red-400 text-rose-700 px-4 py-3 rounded relative">
+    <ul class="list-disc pl-5">
+        @if (control?.getError('required')) {<li>Input is required.</li>}
+        @if (control?.getError('minlength')) {<li>Input must be at least 3 characters long.</li>}
+        @if (control?.getError('maxlength')) {<li>Input must not exceed 20 characters.</li>}
+        @if (control?.getError('email')) {<li>Please enter a valid email address.</li>}        
+        @if (control?.getError('pattern')) {<li>Custom field should match the pattern.</li>}        
+        @if (control?.getError('mismatch')&&control?.get('rePassword')?.touched) {<li>Passwords do not match.</li>
+        }
+    </ul>
+</div>
+    }
+
+
+
+    @if (control?.getError('mismatch')&&control?.get('rePassword')?.touched) {
+             <div class="bg-red-100 border my-3 border-red-400 text-rose-700 px-4 py-3 rounded relative">
+    <ul class="list-disc pl-5">
+        <li>Passwords do not match.</li>
+        </ul>
+        </div>
+        }

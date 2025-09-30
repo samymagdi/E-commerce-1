@@ -1,0 +1,12 @@
+<h1 class="text-3xl font-bold my-10">Shop Popular Categories</h1>
+
+<owl-carousel-o [options]="customOptions">
+
+    @for (slide of categories; track slide._id) {
+      <ng-template carouselSlide [id]="slide._id">
+        <img [src]="slide.image" class="w-full h-[250px]" [alt]="slide.name" [title]="slide.name">
+        <h3 class="my-1 text-center">{{slide.name}}</h3>
+      </ng-template>
+    }
+
+  </owl-carousel-o>

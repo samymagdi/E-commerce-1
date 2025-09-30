@@ -1,0 +1,73 @@
+<div class="max-w-md mx-auto my-10 border border-gray-300 p-5 rounded-2xl">
+    <h1 class="font-bold mb-5 text-2xl">Login</h1>
+
+<form [formGroup]="authForm" (ngSubmit)="getValues()">
+    
+
+
+    <div class="mb-5">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
+        <input formControlName="email" type="email" name="email" id="email"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5"
+        placeholder="Type your email..." />
+
+
+
+
+       <app-errors-message [control]="authForm.get('email')"></app-errors-message>
+
+
+
+    </div>
+
+
+    <div class="mb-5">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Password</label>
+
+        <div class="relative w-full">
+
+            <input formControlName="password" [type]="isShowPassword?'password':'text'" name="password" id="password"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5"
+        placeholder="Type your password..." />
+
+        <button type="button" (click)="showPassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 cursor-pointer">
+            <i class="fa-solid" [ngClass]="isShowPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+        </button>
+
+        </div>
+
+
+<app-errors-message [control]="authForm.get('password')"></app-errors-message>
+
+
+
+    </div>
+
+
+    <div class="flex items-center justify-between">
+
+    <button type="submit" [disabled]="isLoading"
+     class="bg-main rounded text-white px-5 py-2 cursor-pointer hover:bg-main/80">
+    
+        @if (!isLoading) {
+            Login
+        }@else {
+            Loading...
+        }
+    
+    </button>
+
+
+            <a routerLink="/forgot-password" class="text-gray-500 cursor-pointer">Forget Password</a>
+
+    </div>
+
+
+    @if (errorMsg) {
+        <div class="bg-red-100 border my-3 border-red-400 text-rose-700 px-4 py-3 rounded relative">
+            {{errorMsg}}
+        </div>
+    }
+
+</form>
+</div>

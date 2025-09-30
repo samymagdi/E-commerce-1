@@ -1,0 +1,10 @@
+<section class="my-5">
+    <div class="grid sm:grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+        @for (brand of brands; track $index) {
+            <div class=" hover:border hover:border-main rounded-2xl p-4 cursor-pointer">
+                <img [src]="brand.image" alt="" class="w-full">
+                <h2 class="text-center">{{brand.name}}</h2>
+            </div>
+        }
+    </div>
+</section>

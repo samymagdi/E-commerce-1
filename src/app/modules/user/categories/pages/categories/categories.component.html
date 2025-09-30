@@ -1,0 +1,13 @@
+<section class="my-5">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5">
+        @for (category of categories; track $index) {
+            <div (click)="selectCategory(category._id , category.name)" class="transition my-3 border border-gray-300 hover:shadow-[1px_1px_8px_theme(colors.main)] rounded-2xl p-4 cursor-pointer flex flex-col justify-between items-center">
+                <img [src]="category.image" alt="" class="w-full" style="height: 300px;">
+                <h2 class="text-center text-main text-2xl mt-1.5">{{category.name}}</h2>
+            </div>
+        }
+    </div>
+    <app-subcategories [category]="selectedCategory" [categoryName]="categoryName"></app-subcategories>
+</section>
+
+

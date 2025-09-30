@@ -1,0 +1,31 @@
+<div
+  class="product hover:border hover:border-main rounded-2xl p-4 cursor-pointer">
+
+  <a [routerLink]="['/product-details' , product._id ]" [queryParams]="{inWishList: inWishList}">
+    <img [src]="product.imageCover" class="w-full" alt="" />
+  <h4 class="text-main">{{ product.category.name }}</h4>
+  <h1 class="text-2xl line-clamp-1 font-bold">{{ product.title }}</h1>
+  <div class="flex justify-between my-4 px-4">
+    <span>{{ product.price }} EGP</span>
+    <span>
+      <i class="fa-solid fa-star text-rating"></i>
+      {{ product.ratingsAverage }}
+    </span>
+  </div>
+  </a>
+  <div class="flex gap-2 justify-between items-center">
+    <button (click)="onAddToCart()"
+    class="btn cursor-pointer bg-green-600 text-white px-5 py-3 w-full rounded hover:bg-main/80">
+    Add to cart
+  </button>
+
+  <button (click)="BtnClick_WishList()" class="hover:text-red-500 cursor-pointer transition">
+    @if (inWishList) {
+    <i class="fa-solid fa-heart text-red-500"></i>
+    }@else {
+      <i class="fa-regular fa-heart"></i>
+    }
+    
+  </button>
+  </div>
+</div>
